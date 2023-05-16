@@ -1,0 +1,6 @@
+rclone.conf
+rclone*
+rclone*/*
+README.html
+README.txt
+git-log.txt
