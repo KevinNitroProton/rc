@@ -6,10 +6,10 @@ Run_Rclone_Commands()
     do
         echo "--- RUN YOUR COMMAND ---"
         echo
-        echo $i
+        echo "$i"
         echo
         echo "------------------------"
-        ./$i
+        ./"$i"
         echo "--------- END ----------"
         echo
     done< <(grep -v '^ *#' < PUT_YOUR_REMOTES_HERE.txt)
