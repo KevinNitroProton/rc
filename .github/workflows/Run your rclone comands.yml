@@ -2,8 +2,6 @@ name: Run Rclone commands
 
 on:
   push:
-    branches: [ dev ]
-  pull_request:
     paths:
       - "Scripts/YOUR_RCLONE_COMMANDS.txt"
   workflow_dispatch:
@@ -15,7 +13,7 @@ env:
   GITHUB_REPOSITORY: $GITHUB_REPOSITORY
   RCLONE_CONFIG_FILE: ${{ secrets.RCLONE_CONFIG_FILE }}
   WORKSPACE: ${{ github.WORKSPACE }}
-  COMMANDS: ${{ env.COMMANDS }}
+  COMMANDS: ${{ secrets.COMMANDS }}
 
 jobs:
   Run_Your_Custom_Rclone_Commands:
