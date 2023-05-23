@@ -52,4 +52,4 @@ jobs:
         echo "${{ env.COMMANDS }}" > YOUR_RCLONE_COMMANDS.txt  > /dev/null 2>&1
 
     - name: Run your custom commands
-      run: Scripts/YOUR_RCLONE_COMMANDS.txt
+      run: Scripts/Run_custom_commands.sh
