@@ -12,7 +12,7 @@ Run_Rclone_Commands()
         eval "./$i"
         echo "--------- END ----------"
         echo
-    done< <(grep -v '^ *#' < PUT_YOUR_REMOTES_HERE.txt)
+    done< <(grep -v '^ *#' < YOUR_RCLONE_COMMANDS.txt)
 }
 
 if [ -s "YOUR_RCLONE_COMMANDS.txt" ]; then
