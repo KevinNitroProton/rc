@@ -4,7 +4,7 @@ Run your rclone commands on Github Action
 Rclone copy
 
 ```
-rclone copy --transfers 16 --auto-confirm "source" "destination" --ignore-existing
+rclone copy --transfers 16 --auto-confirm "source" "destination" --drive-server-side-across-configs
 ```
 
 Rclone mount for Windows
