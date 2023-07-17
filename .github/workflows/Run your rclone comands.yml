@@ -3,8 +3,10 @@ name: Run Rclone commands
 on:
   push:
     paths:
-      - "Scripts/YOUR_RCLONE_COMMANDS.txt"
+      - "YOUR_RCLONE_COMMANDS.txt"
   workflow_dispatch:
+  watch:
+    types: [started]
 
 permissions: write-all
 
@@ -18,36 +20,36 @@ env:
 jobs:
   Run_Your_Custom_Rclone_Commands:
     runs-on: ubuntu-latest
-#    timeout-minutes: 5
+    #    timeout-minutes: 5
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@main
+      - name: Checkout code
+        uses: actions/checkout@main
 
-    - name: Cache Rclone installation
-      uses: actions/cache@main
-      id: cache-rclone
-      if: ${{ always() }}
-      with:
+      - name: Cache Rclone installation
+        uses: actions/cache@main
+        id: cache-rclone
+        if: ${{ always() }}
+        with:
           path: |
             **/rclone
           key: cache-rclone
-          
-    - name: Install Rclone
-      if: steps.cache-rclone.outputs.cache-hit != 'true'
-      run: Scripts/Install_Rclone.sh
 
-    - name: Download rlcone.conf
-      if: ${{ env.RCLONE_CONFIG_FILE }}
-      run: |
-        rm -f rclone.conf
-        wget -O rclone.conf ${{ env.RCLONE_CONFIG_FILE }} > /dev/null 2>&1
+      - name: Install Rclone
+        if: steps.cache-rclone.outputs.cache-hit != 'true'
+        run: Scripts/Install_Rclone.sh
 
-    - name: Recreate YOUR_RCLONE_COMMANDS.txt
-      if: ${{ env.COMMANDS }}
-      run: |
-        rm -f YOUR_RCLONE_COMMANDS.txt
-        echo "${{ env.COMMANDS }}" > YOUR_RCLONE_COMMANDS.txt  > /dev/null 2>&1
+      - name: Download rlcone.conf
+        if: ${{ env.RCLONE_CONFIG_FILE }}
+        run: |
+          rm -f rclone.conf
+          wget -O rclone.conf ${{ env.RCLONE_CONFIG_FILE }} > /dev/null 2>&1
 
-    - name: Run your custom commands
-      run: Scripts/Run_custom_commands.sh
+      - name: Recreate YOUR_RCLONE_COMMANDS.txt
+        if: ${{ env.COMMANDS }}
+        run: |
+          rm -f YOUR_RCLONE_COMMANDS.txt
+          echo "${{ env.COMMANDS }}" > YOUR_RCLONE_COMMANDS.txt  > /dev/null 2>&1
+
+      - name: Run your custom commands
+        run: Scripts/Run_custom_commands.sh

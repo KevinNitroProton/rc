@@ -9,8 +9,12 @@ Run_Rclone_Commands()
         echo "$i"
         echo
         echo "------------------------"
+        echo
         eval "./$i"
+        echo
         echo "--------- END ----------"
+        echo
+        echo "************************"
         echo
     done< <(grep -v '^ *#' < YOUR_RCLONE_COMMANDS.txt)
 }
