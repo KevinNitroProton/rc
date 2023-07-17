@@ -2,9 +2,13 @@
 
 This project help you run your rclone command in Github Action, which should be useful for `rclone copy`, `rclone sync`,... transfering cloud to cloud...
 
-## DISCLAIMER: ⚠️
+---
+
+# DISCLAIMER: ⚠️
 
 Because it may use lots of bandwidth of Github Action, this repo may risk your Github account. You should use it in your another account.
+
+---
 
 ## HOW TO USE: 📃
 
@@ -34,16 +38,18 @@ Because it may use lots of bandwidth of Github Action, this repo may risk your G
 
 ### OPTION 1: Edit directly
 
-- Fill in [`YOUR_RCLONE_COMMANDS.txt`][YOUR_RCLONE_COMMANDS.txt]
+- Fill in [`YOUR_RCLONE_COMMANDS.txt`](YOUR_RCLONE_COMMANDS.txt)
 
 ### OPTION 2: Use secret
 
 - Create action secret
 - **Name**: `COMMAND`<br>**Value**: Fill in your commands
 
+---
+
 # RUN: 🏃‍♂️
 
-You can do either these options
+> You can do either these options
 
 ## Trigger from [Action tab](../../actions/workflows)
 
@@ -59,6 +65,8 @@ If you push `Run Rclone commands.txt`, it will automatically run the workflow on
 ## Star the repo
 
 When you star your repo, it will automatically run the workflow on that branch _(Or `Main` branch only IDK haven't tested :v)_
+
+---
 
 # NOTICE: ⚠️
 
